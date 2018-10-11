@@ -16,12 +16,13 @@ final class Php71 extends AbstractRuleSet
         '@PHPUnit60Migration:risky' => true,
         'binary_operator_spaces' => [
             'default' => 'align_single_space_minimal',
-            'operators' => ['||' => null, '&&' => null]
+            'operators' => ['||' => null, '&&' => null, '==' => null, '===' => null, '+' => null]
         ],
         'single_quote' => false,
         'array_syntax' => ['syntax' => 'short'],
         'concat_space' => ['spacing' => 'one'],
         'dir_constant' => true,
+        'psr0' => true,
         'no_unused_imports' => true,
         'declare_strict_types' => false,
         'return_type_declaration' => ['space_before' => 'none'],
