@@ -1,0 +1,19 @@
+{
+    "name": "diablomedia/php-cs-fixer-config",
+    "type": "library",
+    "require": {
+        "localheinz/php-cs-fixer-config": "^1.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "DiabloMedia\\PhpCsFixer\\Config\\": "src"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jay Klehr",
+            "email": "jay@diablomedia.com"
+        }
+    ]
+}
