@@ -32,6 +32,7 @@ final class Php71 extends AbstractRuleSet
         'psr0' => true,
         'return_type_declaration' => ['space_before' => 'none'],
         'single_quote' => false,
+        'ternary_to_null_coalescing' => true,
     ];
 
     protected $targetPhpVersion = 70100;
