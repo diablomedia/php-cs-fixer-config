@@ -21,6 +21,7 @@ final class Php71 extends AbstractRuleSet
             'default' => 'align_single_space_minimal',
             'operators' => ['||' => null, '&&' => null, '==' => null, '===' => null, '+' => null]
         ],
+        'class_attributes_separation' => true,
         'concat_space' => ['spacing' => 'one'],
         'declare_strict_types' => false,
         'dir_constant' => true,
