@@ -35,7 +35,25 @@ final class Php71 extends AbstractRuleSet
         'no_unneeded_curly_braces' => true,
         'no_unused_imports' => true,
         'no_useless_return' => true,
-        'ordered_class_elements' => true,
+        'ordered_class_elements' => [
+            'order' => [
+                'use_trait', 
+                'constant_public', 
+                'constant_protected', 
+                'constant_private', 
+                'property_public', 
+                'property_protected', 
+                'property_private', 
+                'construct', 
+                'destruct', 
+                'magic', 
+                'phpunit', 
+                'method_public', 
+                'method_protected', 
+                'method_private'
+            ], 
+            'sortAlgorithm' => 'alpha'
+        ],
         'ordered_imports' => ['sort_algorithm' => 'alpha'],
         'php_unit_construct' => true,
         'psr0' => true,
