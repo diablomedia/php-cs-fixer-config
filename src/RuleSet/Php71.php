@@ -54,7 +54,14 @@ final class Php71 extends AbstractRuleSet
             ], 
             'sortAlgorithm' => 'alpha'
         ],
-        'ordered_imports' => ['sort_algorithm' => 'alpha'],
+        'ordered_imports' => [
+            'imports_order' => [
+                'const',
+                'class',
+                'function',
+            ],
+            'sort_algorithm' => 'alpha'
+        ],
         'php_unit_construct' => true,
         'psr0' => true,
         'return_type_declaration' => ['space_before' => 'none'],
