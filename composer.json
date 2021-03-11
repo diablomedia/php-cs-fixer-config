@@ -1,6 +1,7 @@
 {
     "name": "diablomedia/php-cs-fixer-config",
     "type": "library",
+    "description": "Convenient collection of our php-cs-fixer configs for different PHP versions",
     "require": {
         "ergebnis/php-cs-fixer-config": "^2.0"
     },
