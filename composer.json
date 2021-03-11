@@ -2,7 +2,7 @@
     "name": "diablomedia/php-cs-fixer-config",
     "type": "library",
     "require": {
-        "localheinz/php-cs-fixer-config": "^1.15"
+        "ergebnis/php-cs-fixer-config": "^2.0"
     },
     "autoload": {
         "psr-4": {
