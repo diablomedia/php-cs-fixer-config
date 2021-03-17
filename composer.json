@@ -1,8 +1,9 @@
 {
     "name": "diablomedia/php-cs-fixer-config",
     "type": "library",
+    "description": "Convenient collection of our php-cs-fixer configs for different PHP versions",
     "require": {
-        "localheinz/php-cs-fixer-config": "^1.15"
+        "ergebnis/php-cs-fixer-config": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -15,5 +16,8 @@
             "name": "Jay Klehr",
             "email": "jay@diablomedia.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "2.18.3"
+    }
 }
