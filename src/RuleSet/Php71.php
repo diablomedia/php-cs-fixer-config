@@ -54,7 +54,7 @@ final class Php71 extends AbstractRuleSet
                 'method_protected',
                 'method_private',
             ],
-            'sortAlgorithm' => 'alpha',
+            'sort_algorithm' => 'alpha',
         ],
         'ordered_imports' => [
             'imports_order' => [
@@ -65,7 +65,6 @@ final class Php71 extends AbstractRuleSet
             'sort_algorithm' => 'alpha',
         ],
         'php_unit_construct'         => true,
-        'psr0'                       => true,
         'return_type_declaration'    => ['space_before' => 'none'],
         'single_quote'               => false,
         'ternary_to_null_coalescing' => true,
