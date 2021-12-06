@@ -4,9 +4,9 @@ namespace DiabloMedia\PhpCsFixer\Config\RuleSet;
 
 use Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet;
 
-final class Php74 extends AbstractRuleSet
+final class Php81 extends AbstractRuleSet
 {
-    protected $name = 'diablomedia (PHP 7.4)';
+    protected $name = 'diablomedia (PHP 8.1)';
 
     protected $rules = [
         // Pre-defined rule sets
@@ -19,8 +19,12 @@ final class Php74 extends AbstractRuleSet
         '@PHP73Migration'           => true,
         '@PHP74Migration'           => true,
         '@PHP74Migration:risky'     => true,
+        '@PHP80Migration'           => true,
+        '@PHP80Migration:risky'     => true,
+        '@PHP81Migration'           => true,
         '@PHPUnit60Migration:risky' => true,
         '@PHPUnit75Migration:risky' => true,
+        '@PHPUnit84Migration:risky' => true,
         // Individual rules
         'array_syntax'           => ['syntax' => 'short'],
         'binary_operator_spaces' => [
@@ -74,5 +78,5 @@ final class Php74 extends AbstractRuleSet
         'ternary_to_null_coalescing' => true,
     ];
 
-    protected $targetPhpVersion = 70400;
+    protected $targetPhpVersion = 80100;
 }
