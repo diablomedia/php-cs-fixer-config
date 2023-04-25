@@ -6,9 +6,9 @@ use Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet;
 
 final class Php74 extends AbstractRuleSet
 {
-    protected $name = 'diablomedia (PHP 7.4)';
+    protected string $name = 'diablomedia (PHP 7.4)';
 
-    protected $rules = [
+    protected array $rules = [
         // Pre-defined rule sets
         '@PSR2'                     => true,
         '@PSR12'                    => true,
@@ -74,5 +74,5 @@ final class Php74 extends AbstractRuleSet
         'ternary_to_null_coalescing' => true,
     ];
 
-    protected $targetPhpVersion = 70400;
+    protected int $targetPhpVersion = 70400;
 }
