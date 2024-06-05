@@ -2,13 +2,17 @@
 
 namespace DiabloMedia\PhpCsFixer\Config\RuleSet;
 
-use Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet;
+use Ergebnis\PhpCsFixer\Config\Fixers;
+use Ergebnis\PhpCsFixer\Config\Name;
+use Ergebnis\PhpCsFixer\Config\PhpVersion;
+use Ergebnis\PhpCsFixer\Config\Rules;
+use Ergebnis\PhpCsFixer\Config\RuleSet;
+use ErickSkrauch\PhpCsFixer;
+use PhpCsFixerCustomFixers\Fixer;
 
-final class Php71 extends AbstractRuleSet
+final class Php83
 {
-    protected string $name = 'diablomedia (PHP 7.1)';
-
-    protected array $rules = [
+    private static array $rules = [
         // Pre-defined rule sets
         '@PSR2'                     => true,
         '@PSR12'                    => true,
@@ -16,7 +20,17 @@ final class Php71 extends AbstractRuleSet
         '@PHP70Migration'           => true,
         '@PHP71Migration'           => true,
         '@PHP71Migration:risky'     => true,
+        '@PHP73Migration'           => true,
+        '@PHP74Migration'           => true,
+        '@PHP74Migration:risky'     => true,
+        '@PHP80Migration'           => true,
+        '@PHP80Migration:risky'     => true,
+        '@PHP81Migration'           => true,
+        '@PHP82Migration'           => true,
+        '@PHP83Migration'           => true,
         '@PHPUnit60Migration:risky' => true,
+        '@PHPUnit75Migration:risky' => true,
+        '@PHPUnit84Migration:risky' => true,
         // Individual rules
         'array_syntax'           => ['syntax' => 'short'],
         'binary_operator_spaces' => [
@@ -70,5 +84,26 @@ final class Php71 extends AbstractRuleSet
         'ternary_to_null_coalescing' => true,
     ];
 
-    protected int $targetPhpVersion = 70100;
+    public static function create(): RuleSet
+    {
+        $phpVersion = PhpVersion::create(
+            PhpVersion\Major::fromInt(8),
+            PhpVersion\Minor::fromInt(3),
+            PhpVersion\Patch::fromInt(0),
+        );
+
+        return RuleSet::create(
+            Fixers::fromFixers(
+                new Fixer\PhpdocArrayStyleFixer(),
+                new PhpCsFixer\Whitespace\LineBreakAfterStatementsFixer(),
+            ),
+            Name::fromString(\sprintf(
+                'diablomedia (PHP %d.%d)',
+                $phpVersion->major()->toInt(),
+                $phpVersion->minor()->toInt(),
+            )),
+            $phpVersion,
+            Rules::fromArray(self::$rules),
+        );
+    }
 }

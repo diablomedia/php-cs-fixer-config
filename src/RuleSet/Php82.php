@@ -10,7 +10,7 @@ use Ergebnis\PhpCsFixer\Config\RuleSet;
 use ErickSkrauch\PhpCsFixer;
 use PhpCsFixerCustomFixers\Fixer;
 
-final class Php81
+final class Php82
 {
     private static array $rules = [
         // Pre-defined rule sets
@@ -26,6 +26,7 @@ final class Php81
         '@PHP80Migration'           => true,
         '@PHP80Migration:risky'     => true,
         '@PHP81Migration'           => true,
+        '@PHP82Migration'           => true,
         '@PHPUnit60Migration:risky' => true,
         '@PHPUnit75Migration:risky' => true,
         '@PHPUnit84Migration:risky' => true,
@@ -86,7 +87,7 @@ final class Php81
     {
         $phpVersion = PhpVersion::create(
             PhpVersion\Major::fromInt(8),
-            PhpVersion\Minor::fromInt(1),
+            PhpVersion\Minor::fromInt(2),
             PhpVersion\Patch::fromInt(0),
         );
 
