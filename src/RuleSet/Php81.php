@@ -86,7 +86,7 @@ final class Php81
     {
         $phpVersion = PhpVersion::create(
             PhpVersion\Major::fromInt(8),
-            PhpVersion\Minor::fromInt(3),
+            PhpVersion\Minor::fromInt(1),
             PhpVersion\Patch::fromInt(0),
         );
 

@@ -81,8 +81,8 @@ final class Php74
     public static function create(): RuleSet
     {
         $phpVersion = PhpVersion::create(
-            PhpVersion\Major::fromInt(8),
-            PhpVersion\Minor::fromInt(3),
+            PhpVersion\Major::fromInt(7),
+            PhpVersion\Minor::fromInt(4),
             PhpVersion\Patch::fromInt(0),
         );
 
