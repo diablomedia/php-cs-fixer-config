@@ -2,13 +2,17 @@
 
 namespace DiabloMedia\PhpCsFixer\Config\RuleSet;
 
-use Ergebnis\PhpCsFixer\Config\RuleSet\AbstractRuleSet;
+use Ergebnis\PhpCsFixer\Config\Fixers;
+use Ergebnis\PhpCsFixer\Config\Name;
+use Ergebnis\PhpCsFixer\Config\PhpVersion;
+use Ergebnis\PhpCsFixer\Config\Rules;
+use Ergebnis\PhpCsFixer\Config\RuleSet;
+use ErickSkrauch\PhpCsFixer;
+use PhpCsFixerCustomFixers\Fixer;
 
-final class Php74 extends AbstractRuleSet
+final class Php74
 {
-    protected string $name = 'diablomedia (PHP 7.4)';
-
-    protected array $rules = [
+    private static array $rules = [
         // Pre-defined rule sets
         '@PSR2'                     => true,
         '@PSR12'                    => true,
@@ -74,5 +78,26 @@ final class Php74 extends AbstractRuleSet
         'ternary_to_null_coalescing' => true,
     ];
 
-    protected int $targetPhpVersion = 70400;
+    public static function create(): RuleSet
+    {
+        $phpVersion = PhpVersion::create(
+            PhpVersion\Major::fromInt(8),
+            PhpVersion\Minor::fromInt(3),
+            PhpVersion\Patch::fromInt(0),
+        );
+
+        return RuleSet::create(
+            Fixers::fromFixers(
+                new Fixer\PhpdocArrayStyleFixer(),
+                new PhpCsFixer\Whitespace\LineBreakAfterStatementsFixer(),
+            ),
+            Name::fromString(\sprintf(
+                'diablomedia (PHP %d.%d)',
+                $phpVersion->major()->toInt(),
+                $phpVersion->minor()->toInt(),
+            )),
+            $phpVersion,
+            Rules::fromArray(self::$rules),
+        );
+    }
 }
