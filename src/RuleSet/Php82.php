@@ -10,6 +10,8 @@ use Ergebnis\PhpCsFixer\Config\RuleSet;
 use ErickSkrauch\PhpCsFixer;
 use PhpCsFixerCustomFixers\Fixer;
 
+use function sprintf;
+
 final class Php82
 {
     private static array $rules = [
@@ -96,7 +98,7 @@ final class Php82
                 new Fixer\PhpdocArrayStyleFixer(),
                 new PhpCsFixer\Whitespace\LineBreakAfterStatementsFixer(),
             ),
-            Name::fromString(\sprintf(
+            Name::fromString(sprintf(
                 'diablomedia (PHP %d.%d)',
                 $phpVersion->major()->toInt(),
                 $phpVersion->minor()->toInt(),
