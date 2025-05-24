@@ -46,7 +46,7 @@ final class Php81
         'no_mixed_echo_print'             => ['use' => 'echo'],
         'no_superfluous_phpdoc_tags'      => ['allow_mixed' => true],
         'no_unneeded_control_parentheses' => true,
-        'no_unneeded_curly_braces'        => true,
+        'no_unneeded_braces'              => true,
         'no_unused_imports'               => true,
         'no_useless_return'               => true,
         'ordered_class_elements'          => [
