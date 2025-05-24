@@ -7,8 +7,6 @@ use Ergebnis\PhpCsFixer\Config\Name;
 use Ergebnis\PhpCsFixer\Config\PhpVersion;
 use Ergebnis\PhpCsFixer\Config\Rules;
 use Ergebnis\PhpCsFixer\Config\RuleSet;
-use ErickSkrauch\PhpCsFixer;
-use PhpCsFixerCustomFixers\Fixer;
 
 use function sprintf;
 
@@ -80,6 +78,7 @@ final class Php82
             'sort_algorithm' => 'alpha',
         ],
         'php_unit_construct'         => true,
+        'phpdoc_array_type'          => true,
         'return_type_declaration'    => ['space_before' => 'none'],
         'single_quote'               => false,
         'ternary_to_null_coalescing' => true,
@@ -95,8 +94,7 @@ final class Php82
 
         return RuleSet::create(
             Fixers::fromFixers(
-                new Fixer\PhpdocArrayStyleFixer(),
-                new PhpCsFixer\Whitespace\LineBreakAfterStatementsFixer(),
+                new \ErickSkrauch\PhpCsFixer\Fixer\Whitespace\LineBreakAfterStatementsFixer(),
             ),
             Name::fromString(sprintf(
                 'diablomedia (PHP %d.%d)',
