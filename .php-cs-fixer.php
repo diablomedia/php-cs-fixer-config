@@ -1,9 +1,9 @@
 <?php
 
 use Ergebnis\PhpCsFixer\Config;
-use DiabloMedia\PhpCsFixer\Config\RuleSet\Php80;
+use DiabloMedia\PhpCsFixer\Config\RuleSet\Php81;
 
-$config = Config\Factory::fromRuleSet(Php80::create());
+$config = Config\Factory::fromRuleSet(Php81::create());
 
 $config->setCacheFile(__DIR__ . '/.php_cs.cache');
 $config->getFinder()

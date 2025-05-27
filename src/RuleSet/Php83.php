@@ -7,8 +7,6 @@ use Ergebnis\PhpCsFixer\Config\Name;
 use Ergebnis\PhpCsFixer\Config\PhpVersion;
 use Ergebnis\PhpCsFixer\Config\Rules;
 use Ergebnis\PhpCsFixer\Config\RuleSet;
-use ErickSkrauch\PhpCsFixer;
-use PhpCsFixerCustomFixers\Fixer;
 
 use function sprintf;
 
@@ -50,7 +48,7 @@ final class Php83
         'no_mixed_echo_print'             => ['use' => 'echo'],
         'no_superfluous_phpdoc_tags'      => ['allow_mixed' => true],
         'no_unneeded_control_parentheses' => true,
-        'no_unneeded_curly_braces'        => true,
+        'no_unneeded_braces'              => true,
         'no_unused_imports'               => true,
         'no_useless_return'               => true,
         'ordered_class_elements'          => [
@@ -81,6 +79,7 @@ final class Php83
             'sort_algorithm' => 'alpha',
         ],
         'php_unit_construct'         => true,
+        'phpdoc_array_type'          => true,
         'return_type_declaration'    => ['space_before' => 'none'],
         'single_quote'               => false,
         'ternary_to_null_coalescing' => true,
@@ -96,8 +95,7 @@ final class Php83
 
         return RuleSet::create(
             Fixers::fromFixers(
-                new Fixer\PhpdocArrayStyleFixer(),
-                new PhpCsFixer\Whitespace\LineBreakAfterStatementsFixer(),
+                new \ErickSkrauch\PhpCsFixer\Fixer\Whitespace\LineBreakAfterStatementsFixer(),
             ),
             Name::fromString(sprintf(
                 'diablomedia (PHP %d.%d)',

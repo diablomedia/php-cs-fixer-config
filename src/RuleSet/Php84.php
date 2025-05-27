@@ -7,12 +7,10 @@ use Ergebnis\PhpCsFixer\Config\Name;
 use Ergebnis\PhpCsFixer\Config\PhpVersion;
 use Ergebnis\PhpCsFixer\Config\Rules;
 use Ergebnis\PhpCsFixer\Config\RuleSet;
-use ErickSkrauch\PhpCsFixer;
-use PhpCsFixerCustomFixers\Fixer;
 
 use function sprintf;
 
-final class Php80
+final class Php84
 {
     private static array $rules = [
         // Pre-defined rule sets
@@ -27,9 +25,14 @@ final class Php80
         '@PHP74Migration:risky'     => true,
         '@PHP80Migration'           => true,
         '@PHP80Migration:risky'     => true,
+        '@PHP81Migration'           => true,
+        '@PHP82Migration'           => true,
+        '@PHP83Migration'           => true,
+        '@PHP84Migration'           => true,
         '@PHPUnit60Migration:risky' => true,
         '@PHPUnit75Migration:risky' => true,
         '@PHPUnit84Migration:risky' => true,
+        '@PHPUnit91Migration:risky' => true,
         // Individual rules
         'array_syntax'           => ['syntax' => 'short'],
         'binary_operator_spaces' => [
@@ -47,7 +50,7 @@ final class Php80
         'no_mixed_echo_print'             => ['use' => 'echo'],
         'no_superfluous_phpdoc_tags'      => ['allow_mixed' => true],
         'no_unneeded_control_parentheses' => true,
-        'no_unneeded_curly_braces'        => true,
+        'no_unneeded_braces'              => true,
         'no_unused_imports'               => true,
         'no_useless_return'               => true,
         'ordered_class_elements'          => [
@@ -78,6 +81,7 @@ final class Php80
             'sort_algorithm' => 'alpha',
         ],
         'php_unit_construct'         => true,
+        'phpdoc_array_type'          => true,
         'return_type_declaration'    => ['space_before' => 'none'],
         'single_quote'               => false,
         'ternary_to_null_coalescing' => true,
@@ -87,14 +91,13 @@ final class Php80
     {
         $phpVersion = PhpVersion::create(
             PhpVersion\Major::fromInt(8),
-            PhpVersion\Minor::fromInt(0),
+            PhpVersion\Minor::fromInt(4),
             PhpVersion\Patch::fromInt(0),
         );
 
         return RuleSet::create(
             Fixers::fromFixers(
-                new Fixer\PhpdocArrayStyleFixer(),
-                new PhpCsFixer\Whitespace\LineBreakAfterStatementsFixer(),
+                new \ErickSkrauch\PhpCsFixer\Fixer\Whitespace\LineBreakAfterStatementsFixer(),
             ),
             Name::fromString(sprintf(
                 'diablomedia (PHP %d.%d)',
