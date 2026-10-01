@@ -1,0 +1,42 @@
+name: PHP CS Fixer
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+
+jobs:
+  php-cs-fixer:
+    name: PHP CS Fixer (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "8.2"
+          - "8.3"
+          - "8.4"
+          - "8.5"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          tools: composer:v2
+
+      - name: Resolve dependencies
+        run: composer update --no-interaction --no-progress --prefer-dist
+
+      - name: Check coding style
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff --using-cache=no
